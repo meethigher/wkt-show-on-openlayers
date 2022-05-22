@@ -168,12 +168,11 @@ function plotWKT(flag) {
         new_feature.getGeometry().transform('EPSG:4326', 'EPSG:3857');
         features.push(new_feature);
     }
-    vector = new ol.layer.Vector({
-        source: new ol.source.Vector({features: features}),
-        style: styles
-    });
+
+    createVector();
     selectGeom(current_shape);
     map.addLayer(vector);
+    //控制视角
     derived_feature = features.getArray()[0];
     extent = derived_feature.getGeometry().getExtent();
     minx = derived_feature.getGeometry().getExtent()[0];
@@ -225,7 +224,7 @@ function sendPost(url, requestUrl) {
     xhr.send(requestUrl)
 }
 function printDefaultLog() {
-    console.log("%c@author：Kit Chen\n@createDate：2022-05-16\n@页面加载耗时：" + (performance.now() / 1000).toFixed(2) + "秒", "font-size:18px; font-weight:bold; color:#24a0f0;")
+    console.log("%c@author：Kit Chen\n@createDate：2022-05-16\n@github:https://github.com/meethigher/wkt-show-on-openlayers\n@页面加载耗时：" + (performance.now() / 1000).toFixed(2) + "秒", "font-size:18px; font-weight:bold; color:#24a0f0;")
 }
 sendPost("https://meethigher.top:9090/count", requestUrl);
 window.onload = function () {
