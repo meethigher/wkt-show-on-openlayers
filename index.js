@@ -13,9 +13,19 @@ let fill = new ol.style.Fill({
 });
 
 let stroke = new ol.style.Stroke({
-    color: '#B40404',
+    color: '#4e9f13',
     width: 2
 });
+
+let newStyle = new ol.style.Style({
+    image: new ol.style.Circle({
+        fill: fill,
+        stroke: stroke,
+        radius: 5
+    }),
+    fill: fill,
+    stroke: stroke
+})
 
 let styles = [
     new ol.style.Style({
@@ -66,15 +76,22 @@ function isWhiteColor(color) {
 
 function randomColor() {
     let randomColor = `#${Math.random().toString(16).substr(2, 6)}`;
-    //更新 LineString or Polygon 的边颜色
-    stroke.setColor(randomColor);
-    //更新 Point 的边颜色
-    let image = new ol.style.Circle({
+    //更新边颜色
+    newStyle = new ol.style.Style({
+        image: new ol.style.Circle({
+            fill: fill,
+            stroke: new ol.style.Stroke({
+                color: randomColor,
+                width: 2
+            }),
+            radius: 5
+        }),
         fill: fill,
-        stroke: stroke,
-        radius: 5
-    });
-    styles[0].setImage(image);
+        stroke: new ol.style.Stroke({
+            color: randomColor,
+            width: 2
+        })
+    })
     //更新按钮颜色
     document.getElementById("colorShow").style.backgroundColor = randomColor;
     document.getElementById("colorShow").innerText = randomColor;
@@ -187,6 +204,7 @@ function plotWKT(flag) {
     }));
     map.getView().fit(extent, map.getSize());
 }
+
 /**
  * 清空
  */
@@ -202,6 +220,7 @@ function clearMap() {
     document.getElementById("stringArea").value = "GEOMETRYCOLLECTION()";
     restoreDefaultColors();
 }
+
 /**
  * 通过url加载wkt
  * 比如传参形式url#wkt
@@ -212,6 +231,7 @@ function loadWKTfromURIFragment(fragment) {
     let wkt = window.location.hash.slice(1);
     document.getElementById("stringArea").value = decodeURI(wkt);
 }
+
 /**
  * 统计
  * @param url
@@ -223,9 +243,11 @@ function sendPost(url, requestUrl) {
     xhr.setRequestHeader("origin-referer", document.referrer);
     xhr.send(requestUrl)
 }
+
 function printDefaultLog() {
     console.log("%c@author：Kit Chen\n@createDate：2022-05-16\n@github:https://github.com/meethigher/wkt-show-on-openlayers\n@页面加载耗时：" + (performance.now() / 1000).toFixed(2) + "秒", "font-size:18px; font-weight:bold; color:#24a0f0;")
 }
+
 sendPost("https://meethigher.top:9090/count", requestUrl);
 window.onload = function () {
     createVector();
@@ -234,6 +256,7 @@ window.onload = function () {
     });
 
     features.on("add", function (e) {
+        features.R[features.getLength()-1].setStyle(newStyle);
         restoreDefaultColors();
         features.forEach(toEPSG4326);
         document.getElementById('stringArea').value = format.writeFeatures(features.getArray(), {rightHanded: true});
