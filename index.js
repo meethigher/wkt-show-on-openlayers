@@ -25,7 +25,7 @@ let newStyle = new ol.style.Style({
     }),
     fill: fill,
     stroke: stroke
-})
+});
 
 let styles = [
     new ol.style.Style({
@@ -91,7 +91,7 @@ function randomColor() {
             color: randomColor,
             width: 2
         })
-    })
+    });
     //更新按钮颜色
     document.getElementById("colorShow").style.backgroundColor = randomColor;
     document.getElementById("colorShow").innerText = randomColor;
@@ -241,7 +241,7 @@ function sendPost(url, requestUrl) {
     let xhr = new XMLHttpRequest();
     xhr.open("POST", url, true);
     xhr.setRequestHeader("origin-referer", document.referrer);
-    xhr.send(requestUrl)
+    xhr.send(requestUrl);
 }
 
 function printDefaultLog() {
@@ -256,7 +256,7 @@ window.onload = function () {
     });
 
     features.on("add", function (e) {
-        features.R[features.getLength()-1].setStyle(newStyle);
+        features.R[features.getLength() - 1].setStyle(newStyle);
         restoreDefaultColors();
         features.forEach(toEPSG4326);
         document.getElementById('stringArea').value = format.writeFeatures(features.getArray(), {rightHanded: true});
