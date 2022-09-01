@@ -130,6 +130,7 @@ nav ul li {
 
 .map {
     height: 100%;
+	cursor: crosshair;
 }
 
 
