@@ -245,10 +245,10 @@ function sendPost(url, requestUrl) {
 }
 
 function printDefaultLog() {
-    console.log("%c@author：Kit Chen\n@createDate：2022-05-16\n@github:https://github.com/meethigher/wkt-show-on-openlayers\n@页面加载耗时：" + (performance.now() / 1000).toFixed(2) + "秒", "font-size:18px; font-weight:bold; color:#24a0f0;")
+    console.log("%c@author：Kit Chen\n@createDate：2022-05-16\n@blog：https://meethigher.top/blog/2022/wkt-show-on-openlayers/\n@github：https://github.com/meethigher/wkt-show-on-openlayers\n@页面加载耗时：" + (performance.now() / 1000).toFixed(2) + "秒", "font-size:18px; font-weight:bold; color:#24a0f0;")
 }
 
-sendPost("https://meethigher.top:9090/count", requestUrl);
+sendPost("https://meethigher.top/census/count", requestUrl);
 window.onload = function () {
     createVector();
     raster = new ol.layer.Tile({

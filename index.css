@@ -166,6 +166,8 @@ nav ul li {
     right: 0;
     max-width: 100%;
     padding: 1rem 1rem 0 1rem;
+	border-top:1px solid black;
+	background-color: rgba(0,0,0,.2);
 }
 
 #content textarea {
