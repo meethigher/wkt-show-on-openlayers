@@ -200,7 +200,8 @@ function plotWKT(flag) {
     centery = (miny + maxy) / 2;
     map.setView(new ol.View({
         center: [centerx, centery],
-        zoom: 8
+        zoom: 8,
+        maxZoom: 42
     }));
     map.getView().fit(extent, map.getSize());
 }
@@ -268,9 +269,11 @@ window.onload = function () {
         target: 'meethigher',
         view: new ol.View({
             center: [-11000000, 4600000],
-            zoom: 4
+            zoom: 4,
+            maxZoom: 42
         })
     });
+    map.addControl(new ol.control.ZoomSlider())
     if (window.location && window.location.hash) {
         loadWKTfromURIFragment(window.location.hash);
     }
