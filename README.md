@@ -1,39 +1,22 @@
-平时经常跟经纬度打交道，绘制经纬度目前常用的三个结构：geojson、wkt、wkb。这篇文章简单记录下，实现wkt绘制展示的过程。
+## 功能清单
 
-老规矩，先放抄袭来源。
+如下
 
-1. [OpenLayers - Welcome](https://openlayers.org/)
-2. [clydedacruz/openstreetmap-wkt-playground: Plot and visualize WKT shapes on OpenStreetMap](https://github.com/clydedacruz/openstreetmap-wkt-playground)
-3. [根据背景颜色的亮度调整字体的颜色 - SegmentFault 思否](https://segmentfault.com/a/1190000016905348)
-4. [html中rem的理解&简单运用示例_Zhi.C.Yue的博客-CSDN博客_html rem](https://blog.csdn.net/Jacoh/article/details/84262507)
-
-# 一、效果图
-
-放最后[成果图](https://meethigher.top/wkt/)，以及[源码](https://github.com/meethigher/wkt-show-on-openlayers)。
-
-小屏效果
-
-![](https://meethigher.top/blog/2022/wkt-show-on-openlayers/1.jpg)
-
-大屏效果
-
-![](https://meethigher.top/blog/2022/wkt-show-on-openlayers/2.jpg)
-
-# 二、具体源码
-
-先说要点，由于openStreetMap是个平面，以米为单位，平面就是投影坐标系了。openstreetmap是基于3857投影坐标系的。
-
-![](https://meethigher.top/blog/2022/wkt-show-on-openlayers/3.jpg)
-
-而我们用的经纬度，是以度为单位的，这种的叫做球面坐标系。目前主流的球面坐标系就是4326。
-
-常见wkt都是以经纬度来存储，也就是球面坐标系。openstreetmap是基于3857投影坐标系的。
-
-为了方便在openstreetmap上图，我们需要转换坐标系。
-
-将地图点转为wkt时，要把3857转为4326。
-
-在wkt转换为地图点时，要把4326转为3857。
-
-> 这边一开始想着可以自定义是否要转换4326，还是其他，想了一下，好像没啥必要。就目前我实际使用中，都是4326和3857。
-
+* 支持响应式布局，对小屏友好 ✅
+* 支持 Chrome 83 版本及以上 ✅
+* 支持 OpenLayers 基础的地图交互(平滑缩放、拖动平移等) ✅
+* 支持绘制(点/线/面) ✅
+* 支持编辑(选中图层，进行局部调整、局部删除、整体删除) ✅
+* 支持绘制时撤销(Ctrl+Z) ✅
+* 支持编辑时撤销(Ctrl+Z) ✅
+* 支持空间几何校验以及跟踪错误点视角，方便人为修复错误几何 ✅
+* 支持 WKT/GeoJSON 互相转换 ✅
+* 支持全量渲染 WKT/GeoJSON ✅
+* 支持增量渲染 WKT/GeoJSON ✅
+* 支持控制台实时同步图层的 WKT/GeoJSON ✅
+* 支持增量随机样式渲染 ✅
+* 支持样式的单例与多例模式渲染。单例模式是指相同样式共用同一个样式实例，提高地图渲染性能。✅
+* 支持选中图层修改样式，在多例样式下，可以精确调整某个图层样式 ✅
+* 支持选中图层进行测量（测量距离或面积）✅
+* 支持用户自定义栅格地图地址 ✅
+* 用户初次访问，提示阅读文档 ✅

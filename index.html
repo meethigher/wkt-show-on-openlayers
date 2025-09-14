@@ -1,44 +1,9 @@
-<!doctype html>
-<html lang="zh">
-<head>
-    <meta charset="utf-8">
-    <meta name="keywords" content="wkt,point,linestring,polygon,geometry,openstreetmap,earth"/>
-    <meta name="description" content="well-known-text在线绘制展示"/>
-    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1,minimum-scale=1">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet"
-          href="https://meethigher.top/wkt/ol.css"
-          type="text/css">
-    <link rel="stylesheet" href="index.css">
-    <title>wkt在线绘制展示_EPSG4326</title>
-</head>
-<body>
-<header>
-    <nav>
-        <span>wkt在线绘制展示</span>
-        <ul class="ull">
-            <li><a href="https://meethigher.top">主页</a></li>
-            <li><a href="https://geojson.io">geojson在线绘制展示</a></li>
-        </ul>
-    </nav>
-</header>
-<div id="container">
-    <div id="meethigher" class="map"></div>
-    <div id="tool">
-        <button type="button" class="active" onclick="selectGeom('Point')">Point</button>
-        <button type="button" class="" onclick="selectGeom('LineString')">LineString</button>
-        <button type="button" class="" onclick="selectGeom('Polygon')">Polygon</button>
-    </div>
-</div>
-<div id="content">
-    <button type="button" onclick="clearMap()">清空</button>
-    <button type="button" onclick="plotWKT(true)">全量渲染</button>
-    <button type="button" onclick="plotWKT(false)">追加渲染</button>
-    <button id="colorShow" type="button" onclick="randomColor()" style="background-color: #4e9f13;">#4e9f13</button>
-    <textarea id="stringArea" cols="30" rows="5">POLYGON((113.36572265625 38.80204526520603,107.28369301557538 33.994384090476174,112.38134926557541 28.960087983961387,119.2368153333664 31.690781121452815,113.36572265625 38.80204526520603))</textarea>
-</div>
-<script src="https://meethigher.top/blog/js/module/jquery.min.js"></script>
-<script src="https://meethigher.top/wkt/ol.js"></script>
-<script src="index.js"></script>
-</body>
-</html>
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="X-UA-Compatible" content="ie=edge"><title>WKT/GeoJSON 在线绘制、转换与预览工具 | EPSG:4326</title><meta name="description" content="免费在线绘制、预览、转换 WKT 与 GeoJSON 空间数据，支持 EPSG:4326 坐标系，无需安装插件，GIS 专业人士与开发者必备。"><meta name="keywords" content="WKT在线绘制,GeoJSON在线绘制,GIS工具,EPSG4326,空间数据可视化,地图渲染,WKT转GeoJSON,GeoJSON转WKT"><meta property="og:type" content="website"><meta property="og:title" content="WKT/GeoJSON 在线绘制与转换工具"><meta property="og:description" content="免费在线绘制、预览、转换 WKT 与 GeoJSON 空间数据，支持 EPSG:4326 坐标系。"><meta property="og:url" content="https://meethigher.top/"><meta property="og:locale" content="zh_CN"><link rel="icon" href="/favicon.ico"><link rel="canonical" href="https://meethigher.top/"><script type="application/ld+json">{
+            "@context": "https://schema.org",
+            "@type": "WebApplication",
+            "name": "WKT/GeoJSON 在线工具",
+            "description": "在线绘制、转换与预览 WKT 与 GeoJSON 空间数据",
+            "url": "https://meethigher.top/",
+            "applicationCategory": "GIS工具",
+            "operatingSystem": "Web"
+        }</script><script type="module" crossorigin src="./assets/index-JVGyW2KF.js"></script><link rel="modulepreload" crossorigin href="./assets/6846a6-D2m7jDoH.js"><link rel="modulepreload" crossorigin href="./assets/99720e-DOxhHZXH.js"><link rel="modulepreload" crossorigin href="./assets/9d5da4-CPDYCwbf.js"><link rel="modulepreload" crossorigin href="./assets/ef66d3-BW2MARdE.js"><link rel="modulepreload" crossorigin href="./assets/3363d4-C3CpyOlY.js"><link rel="stylesheet" crossorigin href="./assets/9d5da4-BtPuoxOl.css"></head><body><div id="app"></div></body></html>
